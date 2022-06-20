@@ -1,8 +1,11 @@
 [tool.poetry]
 name = "living-room-bot"
 version = "0.1.0"
-description = ""
+description = "Notifies a text channel whenever a user joins a voice channel"
 authors = ["Saul Reynolds-Haertle <saul@saulrh.com>"]
+license = "MIT"
+repository = "https://github.com/saulrh/living-room-bot.git"
+homepage = "https://github.com/saulrh/living-room-bot"
 
 [tool.poetry.dependencies]
 python = "^3.10"
