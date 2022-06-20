@@ -43,10 +43,11 @@ class _LivingRoomClient(discord.Client):
     ):
         del before # unused
         del member # unused
-        only_person_in_channel = after.channel and len(after.channel.members) == 1
-        in_living_room_after = after.channel and after.channel.id == self._voice_id
-        if only_person_in_channel and in_living_room_after:
-            await self.text_channel.send(f"Someone joined the living room!")
+        if after.channel: # user moved into a voice channel
+            only_person_in_channel = len(after.channel.members) == 1
+            in_living_room = after.channel.id == self._voice_id
+            if only_person_in_channel and in_living_room:
+                await self.text_channel.send(f"Someone's in the living room!")
 
     async def clean_up_old_notifications(self):
         start_time = (
