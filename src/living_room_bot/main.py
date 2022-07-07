@@ -41,9 +41,9 @@ class _LivingRoomClient(discord.Client):
         before: discord.VoiceState,
         after: discord.VoiceState,
     ):
-        del before # unused
         del member # unused
-        if after.channel: # user moved into a voice channel
+        if after.channel:
+            user_changed_channels = after.channel != before.channel
             only_person_in_channel = len(after.channel.members) == 1
             in_living_room = after.channel.id == self._voice_id
             if only_person_in_channel and in_living_room:
